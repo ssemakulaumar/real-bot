@@ -3,65 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trading Bot Dashboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-        }
-        button {
-            padding: 10px;
-            margin: 10px;
-            cursor: pointer;
-        }
-    </style>
+    <title>Python Script Output</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Trading Bot Dashboard</h1>
-        <p>Current BTCUSDT Price: <span id="price">Loading...</span></p>
-        <p>AI Trade Decision: <span id="decision">Waiting...</span></p>
-        <button onclick="placeTrade('BUY')">Buy 0.01 BTC</button>
-        <button onclick="placeTrade('SELL')">Sell 0.01 BTC</button>
-        <h2>Trade Log</h2>
-        <ul id="tradeLog"></ul>
-    </div>
-
-    <script>
-        function fetchData() {
-            fetch('/api/price')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('price').innerText = data.price;
-                    document.getElementById('decision').innerText = data.decision;
-                });
-        }
-
-        function placeTrade(side) {
-            fetch('/api/trade', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ symbol: 'BTCUSDT', side: side, quantity: 0.01 })
-            })
-            .then(response => response.json())
-            .then(data => {
-                let log = document.getElementById('tradeLog');
-                let listItem = document.createElement('li');
-                listItem.innerText = `Trade Executed: ${side} 0.01 BTC`;
-                log.appendChild(listItem);
-            });
-        }
-
-        setInterval(fetchData, 60000);
-        fetchData();
-    </script>
+    <h1>Content from Python Script</h1>
+    <p>{{ content }}</p> <!-- Display the content from the Python script -->
 </body>
 </html>
