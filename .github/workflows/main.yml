@@ -25,4 +25,4 @@ jobs:
 
     - name: Run Python script
       run: |
-        python path/real-bot/bot.py  # Replace with the actual path to your Python script
+        python bot.py  # Replace with the actual path to your Python script
