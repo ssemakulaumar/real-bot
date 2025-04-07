@@ -126,5 +126,11 @@ def run_ai_trade():
         print("Trade execution failed.")
         print(str(e))
 
+def run_ai_trade_loop():
+    while True:
+        run_ai_trade()
+        time.sleep(300)  # wait 5 minutes
+
 if __name__ == '__main__':
     run_ai_trade()
+    run_ai_trade_loop()
