@@ -1,9 +1,8 @@
-name: Run bot.py
+name: Run AI Trading Bot
 
 on:
+  workflow_dispatch:
   push:
-    branches: [main]
-  pull_request:
     branches: [main]
 
 jobs:
@@ -24,3 +23,9 @@ jobs:
 
       - name: Run bot
         run: python bot.py
+        env:
+          TRADING_SYMBOL: BTCUSDT  # You can change this symbol as needed
+          BINANCE_API_KEY: ${{ secrets.BINANCE_API_KEY }}
+          BINANCE_SECRET_KEY: ${{ secrets.BINANCE_SECRET_KEY }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
