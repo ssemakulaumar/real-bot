@@ -106,7 +106,7 @@ def place_trade(symbol, side, quantity):
     return response
 
 def run_ai_trade():
-    symbol = input("Enter the trading symbol (e.g., BTCUSDT): ").upper()
+    symbol = os.getenv("TRADING_SYMBOL", "BTCUSDT").upper()
     action = ai_trade_decision(symbol)
     quantity = TRADING_STRATEGY["trade_quantity"]
 
