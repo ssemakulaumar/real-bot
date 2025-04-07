@@ -1,9 +1,11 @@
-name: Run AI Trading Bot
+name: Run AI Trading Bot Every 5 Minutes
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'  # Run every 5 minutes
+  workflow_dispatch:       # Allow manual trigger
   push:
-    branches: [main]
+    branches: [main]       # Optional: trigger on push to main
 
 jobs:
   run-bot:
@@ -24,7 +26,7 @@ jobs:
       - name: Run bot
         run: python bot.py
         env:
-          TRADING_SYMBOL: BTCUSDT  # You can change this symbol as needed
+          TRADING_SYMBOL: BTCUSDT
           BINANCE_API_KEY: ${{ secrets.BINANCE_API_KEY }}
           BINANCE_SECRET_KEY: ${{ secrets.BINANCE_SECRET_KEY }}
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
