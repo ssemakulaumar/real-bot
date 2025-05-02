@@ -2,7 +2,7 @@ name: Run AI Trading Bot Every 5 Minutes
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Run every 5 minutes
+    - cron: '*/10 * * * *'  # Run every 5 minutes
   workflow_dispatch:       # Allow manual trigger
   push:
     branches: [main]       # Optional: trigger on push to main
